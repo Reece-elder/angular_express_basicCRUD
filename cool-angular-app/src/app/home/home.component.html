@@ -1,0 +1,19 @@
+<div class="column gap-05">
+    <!-- Products -->
+    <div class="row wrap gap-1 space-between">
+        <!-- Code to generate a series of components from a parent component -->
+        <!-- *ngFor is a directive that allows you to loop through a list of items and create a component for each item, it needs to be imported via the CommonModule within the home.ts -->
+        <app-product *ngFor="let product of products"
+        [product]="product"
+        (productOutput)="onProductOutput($event)"> 
+        </app-product>
+    </div>
+
+    <!-- Pagination -->
+    <p-paginator 
+    (onPageChange)="onPageChange($event)" 
+    [rows]="rows" 
+    [totalRecords]="totalRecords" 
+    [rowsPerPageOptions]="[5, 10, 20]"
+    ></p-paginator>
+</div>

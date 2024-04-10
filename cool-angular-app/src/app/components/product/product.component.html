@@ -1,0 +1,19 @@
+<div class="column gap-1 wrapper">
+    <img src="{{ product.image }}" alt="{{ product.name }}">
+    <h2 class="title">{{product.name}}</h2>
+    <div class="row gap-05">
+        <span class="price-label"> Price: </span>
+        <span class="price"> ${{product.price}}</span>
+    </div>
+
+    <!-- Simple values such as Cancel, readonly are single binding values and take in booleans or simple values -->
+    <!-- Complex values such as ngModel require further data transfer and are 'double binded' Requiring the child component to 'Output' the data on construction -->
+    <!-- Double binding allows us to dynamically edit values (such as change ratings) to uopdate the values (two way DOM transfer) -->
+    <p-rating 
+    [cancel]="false" 
+    [readonly]="true"
+    [(ngModel)]="product.rating"
+    ></p-rating>
+</div>
+
+<!-- 2x pairs of {{ }} allows a child componenty to directly obtain the variables and paramaters of the adult component -->
